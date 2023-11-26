@@ -1,1 +1,1 @@
-# text2video-zero.github.io
+# promptimage2life.github.io
