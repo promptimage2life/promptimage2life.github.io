@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Prompt image to Life">
+  <meta name="keywords" content="PiLife">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt image to Life: Training-free text-driven image-to-video Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/Fig1.png">
+  
+
+  <style>  
+    table {  
+      font-family: arial, sans-serif;  
+      border-collapse: collapse;  
+      width: 100%;  
+    }  
+      
+    td, th {  
+      border: 2px solid #F1F4F5;  
+      text-align: left;  
+      padding: 8px;  
+    }  
+    
+    tr:nth-child(3n - 1) {  
+      background-color: #F1F4F5;  
+    }  
+
+    tr:nth-child(3n) {  
+      border: 2px solid #FFFFFF;
+    }  
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> <font color="#FF0000"> P</font>rompt <font color="#FF0000"> i</font>mage to <font color="#FF0000">Life </font>: <br> Training-Free Text-Driven Image-to-Video Generation</h1>
+          <!-- <div class="is-size-5 publication-authors"> -->
+            <!-- <span class="author-block"> -->
+              <!-- <a href="https://www.linkedin.com/in/levonkhachatryan">Levon Khachatryan</a><sup>1*</sup>,</span> -->
+            <!-- <span class="author-block">
+              <a href="https://www.linkedin.com/in/andranik-movsisyan-4528a51a2">Andranik Movsisyan</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/vtadevosian">Vahram Tadevosyan</a><sup>1*</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/dr-ing-roberto-henschel-6aa1ba176">Roberto Henschel</a><sup>1*</sup>,</span>
+            </span><br>
+            <span class="author-block">
+              <a href="https://www.ece.utexas.edu/people/faculty/atlas-wang">Zhangyang Wang</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/shant-navasardyan-1302aa149">Shant Navasardyan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.humphreyshi.com">Humphrey Shi</a><sup>1,3,4,5</sup>
+            </span> -->
+          <!-- </div> -->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup></sup>Anonymous ECCV submission</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup></sup>Paper ID 8758</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="./static/images/hf.png" alt="Button Image">
+                  </span>
+                  <span>Demo (coming soon)</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/images/Fig1.png" style="width:100%;height:540px;">
+      <p class="subtitle has-text-centered">
+        A comparison of PiLife with baseline I2V-Zero method given the same text and image inputs. I2V-Zero is a direct extension of T2V-Zero that accepts both image and text inputs. I2V-Zero suffers from visual collapse and image inconsistency. PiLife solves these issues and outperforms I2V-Zero significantly.      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Image-to-video (I2V) generation is a challenging task that requires transforming a static image into a dynamic video according to a text prompt. For a long time, it has been a challenging task that demands both subject consistency and text semantic alignment. Moreover, existing I2V generators require expensive training on large video datasets. To address this issue, we propose PiLife (\emph{Prompt image to Life}), a novel training-free I2V framework that leverages a pre-trained text-to-image diffusion model. PiLife can generate videos that are coherent with a given image and aligned with the semantics of a given text, which mainly consists of three components: (i) A motion-aware diffusion inversion module that embeds motion semantics into the inverted images as the initial frames; (ii) A motion-aware noise initialization module that employs a motion text attention map to modulate the diffusion process and adjust the motion intensity of different regions with spatial noise;  (iii) A probabilistic cross-frame attention module that leverages a geometric distribution to randomly sample a frame and compute attention with it, thereby enhancing the motion diversity. Experiments show that PiLife significantly outperforms the training-free baselines, and is comparable or even superior to some training-based I2V methods. Our code will be publicly available.          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <video id="teaser" autoplay muted loop playsinline height="100%"> -->
+    <!-- <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 height="100%">
+      <source src="./static/videos/main_video_compressed.mp4"
+              type="video/mp4">
+    </video> -->
+
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section" id="Method">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Method</h2>
+    <section class="hero method">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/Fig2.png" style="width:100%;height:100%;">
+          <p>
+            We conclude two factors that affect image-to-video generation qualities. First, image input misalignment with the diffusion model's distribution. Second, the noise variance across frames uniformly distributed across the entire image.        </div>
+        <div class="hero-body">
+          <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/Fig3.png" style="width:100%;height:100%;">
+          <p>
+            Our PiLife framework consists of three main modules. 
+            (1) The motion-aware diffusion inversion module processes the input text and image to obtain the initial frame with motion information. (2) The motion-aware noise initialization module generates the noise with motion features and initial latent code. (3) The probabilistic cross-frame attention layer replaces the self-attention layer to enhance motion features.          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+<section class="section" id="Results">
+    <h3 class="title">Result</h3>
+    <table class="center">
+                  <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="./static/images/resized_resized_rainstar_random_gif6.gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_rainstar.png" width="450px" height="450px"></td>
+        <td><img src="./static/images/resized_spring.gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_spring_img.png" width="450px" height="450px"></td>
+        <td><img src="./static/images/resized_resized_thunder_random_gif2.gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_thunder.jpg" width="450px" height="450px"></td>
+        <td><img src="./static/images/brandon_img.gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_brandon.png" width="450px" height="450px"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"Rainstar fly through the sky"</td>
+        <td width=25% style="text-align:center;">"The spring is flow with raining."</td>
+        <td width=25% style="text-align:center;">"Thunder is lighting in the sky"</td>
+        <td width=25% style="text-align:center;">"A handsome boy is talking something"</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="./static/images/resized_resized_text2video_A_bear_is_running_in_the_forest.mp4.gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_dancing_bear.png" width="450px" height="450px"></td>
+        <td><img src="./static/images/resized_resized_text2video_A_girl_is_playing_the_piano_with_her_hand.mp4 (1) (1).gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_girl_piano.png" width="450px" height="450px"></td>
+        <td><img src="./static/images/resized_resized_text2video_A_horse_is_running_fast..mp4 (2) (1).gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_horse_running.jpg" width="450px" height="450px"></td>
+        <td><img src="./static/images/resized_resized_text2video_water_is_flowing..mp4 (1).gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_water.png" width="450px" height="450px"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"A bear is dancing happily in the forest."</td>
+        <td width=25% style="text-align:center;">"A beautiful girl is playing the piano."</td>
+        <td width=25% style="text-align:center;">"A horse is running fast."</td>
+        <td width=25% style="text-align:center;">"Water is flowing."</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td><img src="./static/images/resized_resized_text2video_A_man_is_playing_the_guitar.mp4 (12) (1).gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_playing_guitar.png" width="450px" height="450px"></td>
+        <td><img src="./static/images/resized_resized_text2video_A_man_is_speaking_loudly.mp4 (1).gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_fire.png" width="450px" height="450px"></td>
+        <td><img src="./static/images/resized_resized_speedboat_random_gif7.gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_speedboat1.png" width="450px" height="450px"></td>
+                        <td><img src="./static/images/resized_resized_cyber.gif" raw=true width="450px" height="450px"><img src="./static/images/resized_resized_cyber_img.png" width="450px" height="450px"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"A man is playing the guitar"</td>
+        <td width=25% style="text-align:center;">"Fire is burning."</td>
+        <td width=25% style="text-align:center;">"A speedboat is surfing on the sea."</td>
+        <td width=25% style="text-align:center;">"A cyber style of rain out of the window"</td>
+      </tr>
+
+<!--       <tr><td></td><td></td><td></td><td></td></tr>
+      <tr>
+
+        <td><img src="./static/images/fireworks_random_gif1.gif" raw=true width="450px" height="450px"><img src="./static/images/fireworks.jpg" width="450px" height="450px"></td>
+<td><img src="./static/images/ghost.gif" raw=true width="450px" height="450px"><img src="./static/images/ghost_img.jpg" width="450px" height="450px"></td>
+                <td><img src="./static/images/text2video_A_man_is_surfing_on_the_sea..mp4 (6).gif" raw=true width="450px" height="450px"><img src="./static/images/man_surfing.png" width="450px" height="450px"></td>
+        <td><img src="./static/images/text2video_A_woman_is_skiing_on_the_snow..mp4 (3).gif" raw=true width="450px" height="450px"><img src="./static/images/woman_skiing.png" width="450px" height="450px"></td>
+      </tr>
+      <tr>
+        <td width=25% style="text-align:center;">"Fireworks is lighting in the sky."</td>
+        <td width=25% style="text-align:center;">"A ghost is burning fire"</td>
+        <td width=25% style="text-align:center;">"A man is surfing on the sea."</td>
+        <td width=25% style="text-align:center;">"A woman is skiing."</td>
+      </tr> -->
+    </table>
+    <br>
+</section>
+
+
+
+<!-- <section class="section" id='RelatedLinks'>
+  <div class="container is-max-desktop content">
+    <h2 class="title">Related Links</h2>
+
+    <ul>
+      <li><a href="https://ommer-lab.com/research/latent-diffusion-models/"> High-Resolution Image Synthesis with Latent Diffusion Models (a.k.a. LDM & Stable Diffusion)</a></li>
+      <li><a href="https://www.timothybrooks.com/instruct-pix2pix/"> InstructPix2Pix: Learning to Follow Image Editing Instructions</a></li>
+      <li><a href="https://github.com/lllyasviel/ControlNet"> Adding Conditional Control to Text-to-Image Diffusion Models (a.k.a ControlNet)</a></li>
+    </ul>
+    <!-- <div class="content has-text-justified">
+      <p>
+        There's a lot of excellent work that was introduced around the same time as ours.
+      </p>
+      <p>
+        <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+      </p>
+      <p>
+        <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
+        both use deformation fields to model non-rigid scenes.
+      </p>
+      <p>
+        Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
+      </p>
+      <p>
+        There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+      </p>
+    </div> -->
+  </div></section>
+  </div>
+</section> -->
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <p> If you use our work in your research, please cite our publication: </p>
+    <pre><code>@article{text2video-zero,
+    title={Text2Video-Zero: Text-to-Image Diffusion Models are Zero-Shot Video Generators},
+    author={Khachatryan, Levon and Movsisyan, Andranik and Tadevosyan, Vahram and Henschel, Roberto and Wang, Zhangyang and Navasardyan, Shant and Shi, Humphrey},
+    journal={arXiv preprint arXiv:2303.13439},
+    year={2023}
+  }
+    </code></pre>
+  </div>
+</section> -->
+<!-- 
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://arxiv.org/pdf/2303.13439.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/Picsart-AI-Research/Text2Video-Zero" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website adapted from the following <a href="https://github.com/nerfies/nerfies.github.io">template</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+</body>
+</html>
